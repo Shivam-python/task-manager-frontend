@@ -1,0 +1,14 @@
+version: '3'
+services:
+  kanban_board_app:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    container_name: kanban_board
+    ports:
+      - '8080:8080'
+    volumes:
+      - .:/kanbanboard
+      - /kanbanboard/node_modules
+    command: npm run serve
